@@ -11,6 +11,7 @@ import './App.css';
 const App = () => {
 
   const [starships, setStarships] = useState([])
+  const [filter, setFilter] = useState('')
 
   useEffect(() => {
     const fetchShipData = async () => {
@@ -25,8 +26,8 @@ const App = () => {
     <>
       <h1>Star Wars API</h1>
       <h2>Search</h2>
-        <StarshipSearch />
-        <StarshipList starships={starships} />
+        <StarshipSearch setFilter={setFilter} />
+        <StarshipList starships={starships} filter={filter}/>
     </>
   );
 }

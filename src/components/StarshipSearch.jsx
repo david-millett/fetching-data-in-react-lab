@@ -1,9 +1,8 @@
 import { useState } from "react"
 
-const StarshipSearch = () => {
+const StarshipSearch = (props) => {
 
     const [searchData, setSearchData] = useState('')
-    const [filter, setFilter] = useState('')
     
     const handleChange = (event) => {
         setSearchData(event.target.value)
@@ -11,7 +10,8 @@ const StarshipSearch = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        setFilter(event.target.value)
+        props.setFilter(searchData)
+        console.log(searchData)
         setSearchData('')
     }
     
